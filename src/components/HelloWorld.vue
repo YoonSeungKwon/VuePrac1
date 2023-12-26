@@ -27,10 +27,30 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>
+    <router-link to="/home">홈으로</router-link>
+    <p>
+      {{ message }}
+    </p>
   </div>
 </template>
 
 <script setup>
+  import axios from 'axios';
+  import { ref } from 'vue';
+
+  const message = ref("")
+
+  function setMessage(msg){
+    message.value = msg
+  }
+
+  axios.get('http://localhost:8081/api/v1/'
+  ).then((res)=>{
+    console.log(res)
+    setMessage(res.data)
+  }).catch((error)=>{
+    console.log(error)
+  })
 
 </script>
 
