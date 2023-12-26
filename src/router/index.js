@@ -1,13 +1,11 @@
-import HelloWorld from '@/components/HelloWorld';
 import MainView from '@/components/MainView';
 import HomeView from '@/components/HomeView';
 import { createRouter, createWebHistory } from 'vue-router';
 
 
 const routes = [
-    {path:'/', component:HelloWorld},
+    {path:'/', component:HomeView},
     {path:'/main', component:MainView},
-    {path:'/home', component:HomeView},
 ]
 
 const router = createRouter({
