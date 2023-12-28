@@ -13,7 +13,7 @@
             <input id="btn" @click="login" type="submit"/>
             
             <div class="help">
-                <span>회원가입</span>
+                <span @click="registerPage">회원가입</span>
                 <span>아이디 | 비밀번호 찾기</span>
             </div>
         </div>
@@ -22,13 +22,24 @@
 
 <script setup>
 import axios from 'axios';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { members } from '@/state/members'
 import { useRouter } from 'vue-router';
 
 const email = ref("")
 const password = ref("")
 const router = useRouter()
+
+onMounted(()=>{
+    if(members.email !== ""){
+        router.push(`/member/${members.email}`)
+    }
+})
+
+function registerPage(){
+    router.push('/register')
+}
+
 async function login(){
     await axios.post('http://13.209.154.183:8080/api/v1/members/login', {
         email:email.value,

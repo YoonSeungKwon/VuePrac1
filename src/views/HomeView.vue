@@ -1,8 +1,8 @@
 <template>
     <div>
         <h1>Home Page!</h1>
-        <h2>안녕하세요.. Vue3 Doc보고 GPT와 공부하기 프로젝트입니다.</h2>
-        <router-link class="link" to="/main">로그인 페이지로..</router-link>
+        <h2>안녕하세요. Vue3 Doc보고 GPT와 공부하기 프로젝트입니다.</h2>
+        <router-link class="link" to="/login">로그인 페이지로</router-link>
     </div>
 </template>
 
@@ -19,6 +19,6 @@ h2{
     font-weight: bold;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     text-decoration: none;
-    color: #2c3e50;
+    color: rgb(81, 81, 240);
 }
 </style>

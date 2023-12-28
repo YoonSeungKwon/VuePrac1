@@ -1,13 +1,15 @@
-import MainView from '@/components/MainView';
-import HomeView from '@/components/HomeView';
-import MemberView from '@/components/MemberView'
+import LoginView from '@/views/LoginView';
+import HomeView from '@/views/HomeView';
+import MemberView from '@/views/MemberView'
+import RegisterView from '@/views/RegisterView'
 import { createRouter, createWebHistory } from 'vue-router';
 
 
 const routes = [
     {path:'/', component:HomeView},
-    {path:'/main', component:MainView},
+    {path:'/login', component:LoginView},
     {path:'/member/:id', component:MemberView},
+    {path:'/register', component:RegisterView},
 ]
 
 const router = createRouter({
