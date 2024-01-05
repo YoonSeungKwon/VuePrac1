@@ -2,10 +2,11 @@
 <div>
     <h1>Members Page!</h1>
     <div class="member-wrap">
-        <img ref='refImage' alt="#"/>
         <span>{{members.name}}</span>
         <br/>
         <span>{{members.email}}</span>
+        <br/>>
+        <span>{{members.regdate}}</span>
     </div>
     <div class="logout-wrap">
         <span class="logout" @click="logout">로그아웃</span>
@@ -15,21 +16,14 @@
 
 <script setup>
 import { members } from '@/state/members';
-import { onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-const refImage = ref(null)
 const router = useRouter()
-
-onMounted(()=>{
-    refImage.value.src = members.profile
-})
 
 function logout(){
     members.email = ""
     members.name = ""
-    members.oauth = ""
-    members.profile  = ""
+    members.regdate = ""
     alert('로그아웃 되었습니다.')
     router.push('/')
 }

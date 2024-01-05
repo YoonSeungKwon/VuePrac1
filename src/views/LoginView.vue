@@ -41,7 +41,7 @@ function registerPage(){
 }
 
 async function login(){
-    await axios.post('http://13.209.154.183:8080/api/v1/members/login', {
+    await axios.post('http://localhost:8080/api/v1/members/login', {
         email:email.value,
         password:password.value,
     }).then((res)=>{
@@ -50,8 +50,7 @@ async function login(){
         //
         members.email = res.data.email
         members.name = res.data.name
-        members.oauth = res.data.oauth
-        members.profile = res.data.profile
+        members.regdate = res.data.regdate
         //
 
         alert(`안녕하세요 ${members.name} 님`)
