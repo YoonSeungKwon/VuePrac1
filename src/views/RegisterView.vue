@@ -14,7 +14,7 @@
                 <span>Name:</span>
                 <input v-model="name"/>
             </div>
-            <input id="btn" @click="login" type="submit"/>
+            <input id="btn" @click="register" type="submit"/>
             
             <div class="help">
                 <span @click="loginPage">로그인 페이지로</span>
@@ -37,14 +37,14 @@ function loginPage(){
     router.push('/login')
 }
 
-async function login(){
-    await axios.post('http://localhost:8080/api/v1/members', {
+async function register(){
+    await axios.post('http://authservie:8080/api/v1/members', {
         email:email.value,
         password:password.value,
         name:name.value,
     }).then((res)=>{
         console.log(res)
-        alert(`${name.value} 님 회원가입을 축하드립니다.\n 로그이 페이지로 이동합니다.`)
+        alert(`${name.value} 님 회원가입을 축하드립니다.\n 로그인 페이지로 이동합니다.`)
         router.push(`/login`)
     }).catch((error)=>{
         console.log(error)
