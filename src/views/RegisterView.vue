@@ -38,7 +38,7 @@ function loginPage(){
 }
 
 async function login(){
-    await axios.post('http://13.209.154.183:8080/api/v1/members/', {
+    await axios.post('http://localhost:8080/api/v1/members', {
         email:email.value,
         password:password.value,
         name:name.value,
