@@ -38,7 +38,7 @@ function loginPage(){
 }
 
 async function register(){
-    await axios.post('http://authservie:8080/api/v1/members', {
+    await axios.post('http://authservice-authservice:8080/api/v1/members/', {
         email:email.value,
         password:password.value,
         name:name.value,
@@ -48,7 +48,6 @@ async function register(){
         router.push(`/login`)
     }).catch((error)=>{
         console.log(error)
-        alert(error.data.message)
     })
 }
 </script>

@@ -1,11 +1,23 @@
-# Node.js LTS 버전을 사용하는 베이스 이미지
-FROM node:lts AS builder
+# Stage 1: Build Vue.js app
+FROM node:14.17.6 as build
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
-FROM nginx:stable
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
-CMD ["nginx", "-g", "daemon off;"]
+
+# Stage 2: Serve the built Vue.js app using a lightweight HTTP server
+FROM node:14.17.6 as serve
+
+WORKDIR /app
+COPY --from=build /app/dist /app
+
+# Install http-server globally
+RUN npm install -g http-server
+
+# Expose port 8080
+EXPOSE 8081
+
+# Command to start the HTTP server
+CMD ["http-server", "-p", "8081"]

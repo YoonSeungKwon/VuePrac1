@@ -41,7 +41,7 @@ function registerPage(){
 }
 
 async function login(){
-    await axios.post('http://authservice:8080/api/v1/members/login', {
+    await axios.post('http://authservice-authservice:8080/api/v1/members/login', {
         email:email.value,
         password:password.value,
     }).then((res)=>{
