@@ -38,7 +38,7 @@ function loginPage(){
 }
 
 async function register(){
-    await axios.post('http://localhost:8080/api/v1/members/', {
+    await axios.post('http://localhost:8081/api/v1/members/', {
         email:email.value,
         password:password.value,
         name:name.value,
