@@ -53,6 +53,9 @@ async function login(){
         members.regdate = res.data.regdate
         //
 
+        localStorage.setItem('accToken', res.headers.get('Authorization'))
+        localStorage.setItem('refToken', res.headers.get('X-Refresh-Token'))
+
         alert(`안녕하세요 ${members.name} 님`)
         router.push(`/member/${members.email}`)
     }).catch((error)=>{

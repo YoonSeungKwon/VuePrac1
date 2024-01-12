@@ -26,6 +26,16 @@ function test(){
                 console.log(error)
             }
         )
+    }else{
+        axios.get("http://localhost:8082/api/v1/auth").then(
+            (res)=>{
+                console.log(res)
+            }
+        ).catch(
+            (error)=>{
+                console.log(error)
+            }
+        )
     }
 }
 
